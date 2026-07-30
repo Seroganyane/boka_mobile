@@ -42,3 +42,32 @@ const packages = {
   }
 
   updatePackages();
+
+  const bookingForm = document.getElementById('bookingForm');
+  const bookingSuccess = document.getElementById('bookingSuccess');
+
+  if (bookingForm) {
+    bookingForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const name = bookingForm.querySelector('[name="name"]').value.trim();
+      const phone = bookingForm.querySelector('[name="phone"]').value.trim();
+      const service = bookingForm.querySelector('[name="service"]').value;
+      const date = bookingForm.querySelector('[name="date"]').value;
+      const notes = bookingForm.querySelector('[name="notes"]').value.trim();
+
+      const body = [
+        `Name: ${name || 'Not provided'}`,
+        `Phone: ${phone || 'Not provided'}`,
+        `Service: ${service || 'Not provided'}`,
+        `Preferred date: ${date || 'Not provided'}`,
+        `Notes: ${notes || 'No additional notes'}`
+      ].join('\n');
+
+      window.location.href = `mailto:nickmametja6@gmail.com?subject=${encodeURIComponent('New booking request from Boka Mobile Detailing')}&body=${encodeURIComponent(body)}`;
+
+      bookingSuccess.textContent = `Thanks${name ? `, ${name}` : ''}! Your booking request is ready to send. We’ll follow up shortly.`;
+      bookingSuccess.style.display = 'block';
+      bookingForm.reset();
+    });
+  }
