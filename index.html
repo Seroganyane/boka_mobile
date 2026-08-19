@@ -8,39 +8,52 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="is-loading">
+
+<div class="site-loader" id="siteLoader" role="status" aria-live="polite">
+  <img src="WhatsApp%20Image%202026-08-16%20at%208.58.36%20AM.jpeg" alt="Boka Mobile Detailing logo">
+  <span>Preparing your detail</span>
+  <div class="loader-bar" aria-hidden="true"><i></i></div>
+</div>
 
 <header>
   <nav>
-    <div class="brand">
-      <span class="b1 condensed">BOKA</span>
-      <span class="b2 display" style="font-size:15px;">MOBILE DETAILING</span>
-    </div>
+    <a class="brand" href="#top" aria-label="Boka Mobile Detailing home">
+      <img src="WhatsApp%20Image%202026-08-16%20at%208.58.36%20AM.jpeg" alt="Boka Mobile Detailing logo">
+    </a>
     <div class="navlinks">
       <a href="#services">Services</a>
       <a href="#pricing">Pricing</a>
+      <a href="#reviews">Results</a>
       <a href="#estimate">Get a Price</a>
       <a href="#contact">Contact</a>
     </div>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-menu">Menu</button>
     <a href="#contact" class="navcta">Book Now</a>
   </nav>
 </header>
 
+<main id="top">
 <section class="hero">
   <div class="hero-inner">
     <div>
       <span class="quote-tag">"Cleanliness is close to godliness"</span>
       <h1 class="display">WE COME<br>TO <span class="gold">YOU.</span></h1>
-      <p class="lede">Boka Mobile Detailing brings the full wash bay to your driveway &mdash; interiors, engine bays, couches and mattresses, done right where you park.</p>
+      <p class="lede">Professional mobile detailing for cars, couches and mattresses. We bring the water, steam and finish to your driveway, office or home.</p>
       <div class="hero-ctas">
-        <a href="#contact" class="btn-primary">Book a slot →</a>
+        <a href="#contact" class="btn-primary">Book your detail <span aria-hidden="true">→</span></a>
         <a href="#pricing" class="btn-ghost">See pricing</a>
+      </div>
+      <div class="hero-proof" aria-label="Boka service highlights">
+        <div><strong>On-site</strong><span>We come to you</span></div>
+        <div><strong>From R250</strong><span>Clear package prices</span></div>
+        <div><strong>Pay online</strong><span>Powered by Paystack</span></div>
       </div>
     </div>
     <div class="foam-stage" aria-hidden="true">
       <div class="photo-frame">
         <img src="assets/pink-foam-car.jpg" alt="Car covered in pink foam during a Boka Mobile Detailing wash" loading="lazy">
-        <span class="photo-badge">Fresh off the detail ✨</span>
+        <span class="photo-badge">Fresh off the detail</span>
       </div>
       <div class="bubble" style="width:70px;height:70px; top:0px; left:2%; animation-delay:0s;"></div>
       <div class="bubble" style="width:36px;height:36px; top:8%; right:6%; animation-delay:1s;"></div>
@@ -51,6 +64,8 @@
   </div>
 </section>
 
+</main>
+
 <div class="strip" aria-hidden="true">
   <div class="strip-track">
     <span>★ INTERIOR DETAILING</span><span>★ COUCH & MATTRESS CLEANING</span><span>★ CERAMIC COATING</span><span>★ ENGINE BAY WASH</span><span>★ WE COME TO YOU</span>
@@ -59,8 +74,8 @@
 </div>
 
 <section class="section" id="services">
-  <div class="eyebrow">What we do</div>
-  <h2>Three services. One van. Zero hassle.</h2>
+  <div class="eyebrow">The Boka difference</div>
+  <h2>A proper clean, without rearranging your day.</h2>
   <p class="sub">From a full interior deep clean to freshening up the couch you've been meaning to sort out for months — we bring water, steam and the right tools straight to you.</p>
 
   <div class="service-grid">
@@ -113,6 +128,24 @@
         </div>
       </div>
       <div class="price-card">
+        <div class="price-head">Interior Detail — Bakkie</div>
+        <div class="price-list">
+          <div class="price-row"><span class="label">Interior deep clean</span><span class="amt">R800</span></div>
+          <div class="price-row"><span class="label">Interior + engine bay wash</span><span class="amt">R900</span></div>
+          <div class="price-row"><span class="label">Interior + normal car wash</span><span class="amt">R950</span></div>
+          <div class="price-row"><span class="label">Exterior wash & shine + interior</span><span class="amt">R1300</span></div>
+          <div class="price-row"><span class="label">Ceramic coating</span><span class="amt">R450</span></div>
+        </div>
+      </div>
+      <div class="price-card">
+        <div class="price-head">Interior Detail — Mini Bus</div>
+        <div class="price-list">
+          <div class="price-row"><span class="label">Exterior wash</span><span class="amt">R150</span></div>
+          <div class="price-row"><span class="label">Interior deep clean</span><span class="amt">R1400</span></div>
+          <div class="price-row"><span class="label">Interior deep clean + exterior wash</span><span class="amt">R1550</span></div>
+        </div>
+      </div>
+      <div class="price-card">
         <div class="price-head">Couch & Mattress</div>
         <div class="price-list">
           <div class="price-row"><span class="label">2 seats</span><span class="amt">R250</span></div>
@@ -138,6 +171,8 @@
         <select id="cat" onchange="updatePackages()">
           <option value="sedan">Interior Detail — Sedan / Hatch</option>
           <option value="suv">Interior Detail — SUV</option>
+          <option value="bakkie">Interior Detail — Bakkie</option>
+          <option value="minibus">Interior Detail — Mini Bus</option>
           <option value="home">Couch & Mattress</option>
         </select>
 
@@ -167,6 +202,37 @@
   </div>
 </div>
 
+<section class="reviews" id="reviews">
+  <div class="section reviews-inner">
+    <div class="reviews-heading">
+      <div>
+        <div class="eyebrow">Customer results</div>
+        <h2>Clean details, clearly visible.</h2>
+      </div>
+      <p>From a fresh carpet to a steam-cleaned console, these are the finishing touches we bring straight to your driveway.</p>
+    </div>
+
+    <div class="review-gallery">
+      <figure class="review-card review-card--tall">
+        <img src="car5.jpeg" alt="Clean car carpet after a professional interior detail" loading="lazy">
+        <figcaption><span>Interior detail</span><strong>Clean carpet finish</strong></figcaption>
+      </figure>
+      <figure class="review-card">
+        <img src="car3.jpeg" alt="Clean front seat and vehicle interior after detailing" loading="lazy">
+        <figcaption><span>Interior detail</span><strong>Seats refreshed</strong></figcaption>
+      </figure>
+      <figure class="review-card">
+        <img src="car4.jpeg" alt="Clean vehicle floor mat and footwell after detailing" loading="lazy">
+        <figcaption><span>Interior detail</span><strong>Every corner cleaned</strong></figcaption>
+      </figure>
+      <figure class="review-card review-card--tall">
+        <img src="car7.jpeg" alt="Steam cleaning in progress inside a car" loading="lazy">
+        <figcaption><span>Deep clean</span><strong>Steam treatment</strong></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <section class="contact" id="contact">
   <div class="contact-inner">
     <div>
@@ -185,9 +251,15 @@
       </div>
     </div>
 
-    <div class="book-panel">
-      <h3>Book your slot</h3>
-      <p style="color:var(--ink); opacity:0.75; font-size:15px; line-height:1.5;">Fill in the form below and we’ll confirm your booking as soon as possible.</p>
+      <div class="book-panel">
+        <div class="book-panel-head">
+          <div>
+            <span class="form-kicker">Step 1 of 1</span>
+            <h3>Book your slot</h3>
+          </div>
+          <span class="secure-badge">Secure checkout</span>
+        </div>
+        <p class="book-intro">Choose a package, tell us where to find you, and select cash or secure online payment.</p>
       <form id="bookingForm" class="booking-form">
         <div class="field">
           <label for="bookingName">Name</label>
@@ -198,14 +270,24 @@
           <input id="bookingPhone" name="phone" type="tel" placeholder="065 899 2144" required>
         </div>
         <div class="field">
-          <label for="bookingService">Service</label>
+          <label for="bookingEmail">Email</label>
+          <input id="bookingEmail" name="email" type="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label for="bookingService">Service category</label>
           <select id="bookingService" name="service" required>
-            <option value="">Select service</option>
-            <option>Interior detailing</option>
-            <option>Couch cleaning</option>
-            <option>Mattress cleaning</option>
-            <option>Interior + engine bay wash</option>
-            <option>Ceramic coating</option>
+            <option value="">Select a category</option>
+            <option value="sedan">Sedan / Hatch</option>
+            <option value="suv">SUV</option>
+            <option value="bakkie">Bakkie</option>
+            <option value="minibus">Mini Bus</option>
+            <option value="home">Couch & Mattress</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="bookingPackage">Package</label>
+          <select id="bookingPackage" name="package" required disabled>
+            <option value="">Select a service category first</option>
           </select>
         </div>
         <div class="field">
@@ -216,7 +298,16 @@
           <label for="bookingNotes">Details</label>
           <textarea id="bookingNotes" name="notes" rows="4" placeholder="Vehicle type, package, address, or anything else we should know"></textarea>
         </div>
-        <button class="btn-primary" type="submit">Request booking</button>
+        <fieldset class="payment-choice">
+          <legend>How would you like to pay?</legend>
+          <label><input type="radio" name="paymentMethod" value="cash" checked> <span><strong>Pay cash</strong><small>Pay when we arrive.</small></span></label>
+          <label><input type="radio" name="paymentMethod" value="online"> <span><strong>Pay online</strong><small>Secure payment via Paystack.</small></span></label>
+        </fieldset>
+        <div class="booking-summary" aria-live="polite">
+          <span>Booking total</span>
+          <strong id="bookingTotal">Choose a package</strong>
+        </div>
+        <button class="btn-primary" type="submit" id="bookingSubmit">Request booking</button>
       </form>
       <div id="bookingSuccess" class="form-success" role="status" aria-live="polite"></div>
       <div class="book-note">Cleanliness is close to godliness — let's get you there.</div>
