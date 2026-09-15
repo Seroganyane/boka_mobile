@@ -1,0 +1,21 @@
+CREATE TABLE IF NOT EXISTS bookings (
+    id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    reference VARCHAR(100) NOT NULL,
+    customer_name VARCHAR(200) NOT NULL,
+    phone VARCHAR(50) NOT NULL,
+    email VARCHAR(254) NOT NULL,
+    location VARCHAR(200) NOT NULL,
+    service VARCHAR(200) NOT NULL,
+    package_name VARCHAR(200) NOT NULL,
+    preferred_date DATE NOT NULL,
+    notes TEXT NOT NULL,
+    payment_method VARCHAR(100) NOT NULL,
+    amount VARCHAR(50) NOT NULL,
+    status ENUM('pending', 'confirmed', 'completed', 'cancelled') NOT NULL DEFAULT 'pending',
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    UNIQUE KEY bookings_reference_unique (reference),
+    KEY bookings_date_index (preferred_date),
+    KEY bookings_status_index (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

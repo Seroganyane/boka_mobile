@@ -47,7 +47,7 @@
       <div class="hero-proof" aria-label="Boka service highlights">
         <div><strong>On-site</strong><span>We come to you</span></div>
         <div><strong>From R250</strong><span>Clear package prices</span></div>
-        <div><strong>Pay online</strong><span>Powered by Paystack</span></div>
+        <div><strong>Pay online</strong><span>Powered by PayFast</span></div>
       </div>
     </div>
     <div class="foam-stage" aria-hidden="true">
@@ -76,7 +76,7 @@
 <section class="section" id="services">
   <div class="eyebrow">The Boka difference</div>
   <h2>A proper clean, without rearranging your day.</h2>
-  <p class="sub">From a full interior deep clean to freshening up the couch you've been meaning to sort out for months — we bring water, steam and the right tools straight to you.</p>
+  <p class="sub">From a full interior deep clean to freshening up the couch you've been meaning to sort out for months — we bring steam and the right tools straight to you.</p>
 
   <div class="service-grid">
     <div class="service-card">
@@ -168,7 +168,7 @@
       <p>Pick a category and a package to get an instant estimate before you book. We'll confirm the exact total when we arrive.</p>
       <div class="calc-form">
         <label for="cat">Category</label>
-        <select id="cat" onchange="updatePackages()">
+        <select id="cat">
           <option value="sedan">Interior Detail — Sedan / Hatch</option>
           <option value="suv">Interior Detail — SUV</option>
           <option value="bakkie">Interior Detail — Bakkie</option>
@@ -177,7 +177,7 @@
         </select>
 
         <label for="pkg">Package</label>
-        <select id="pkg" onchange="updateEstimate()"></select>
+        <select id="pkg"></select>
 
         <div class="result-box">
           <span class="rlabel">Estimated total</span>
@@ -188,7 +188,7 @@
     <div class="calc-right">
       <div class="why-row">
         <div class="why-num">1</div>
-        <div><h4>We arrive fully equipped</h4><p>Water tank, extraction machine, steamer and all products come with us — no tap or plug needed.</p></div>
+        <div><h4>We arrive fully equipped</h4><p>Our extraction machine, steamer and all cleaning products come with us.</p></div>
       </div>
       <div class="why-row">
         <div class="why-num">2</div>
@@ -259,7 +259,7 @@
           </div>
           <span class="secure-badge">Secure checkout</span>
         </div>
-        <p class="book-intro">Choose a package, tell us where to find you, and select cash or secure online payment.</p>
+        <p class="book-intro">Choose a package, come to us or book a house call, and select cash or secure online payment.</p>
       <form id="bookingForm" class="booking-form">
         <div class="field">
           <label for="bookingName">Name</label>
@@ -272,6 +272,19 @@
         <div class="field">
           <label for="bookingEmail">Email</label>
           <input id="bookingEmail" name="email" type="email" placeholder="you@example.com" required>
+        </div>
+        <fieldset class="payment-choice">
+          <legend>Where would you like your service?</legend>
+          <label><input type="radio" name="visitType" value="dropoff" required> <span><strong>Come to us</strong><small>No travel charge.</small></span></label>
+          <label><input type="radio" name="visitType" value="housecall" required> <span><strong>House call</strong><small>R5 per kilometre, one way.</small></span></label>
+        </fieldset>
+        <p class="travel-help">Our address: 6385 Mothomo Crescent, Birch Acres, Kempton Park.</p>
+        <div class="field" id="houseCallFields" hidden>
+          <label for="bookingLocation">Your full address</label>
+          <input id="bookingLocation" name="location" type="text" maxlength="200" autocomplete="street-address" placeholder="House number, street, suburb and town">
+          <label for="bookingKilometers">Distance from your home to us (km)</label>
+          <input id="bookingKilometers" name="distanceKm" type="number" min="0.001" max="9999" step="0.001" inputmode="decimal" placeholder="For example: 12.5" aria-describedby="travelHelp" disabled>
+          <p class="travel-help" id="travelHelp">Check the one-way driving distance to our address above, then enter the kilometres here. House calls cost R5 per kilometre.</p>
         </div>
         <div class="field">
           <label for="bookingService">Service category</label>
@@ -300,12 +313,14 @@
         </div>
         <fieldset class="payment-choice">
           <legend>How would you like to pay?</legend>
-          <label><input type="radio" name="paymentMethod" value="cash" checked> <span><strong>Pay cash</strong><small>Pay when we arrive.</small></span></label>
-          <label><input type="radio" name="paymentMethod" value="online"> <span><strong>Pay online</strong><small>Secure payment via Paystack.</small></span></label>
+          <label><input type="radio" name="paymentMethod" value="cash" checked> <span><strong>Pay cash</strong><small>Pay at your appointment.</small></span></label>
+          <label><input type="radio" name="paymentMethod" value="online"> <span><strong>Pay online</strong><small>Secure payment via PayFast.</small></span></label>
         </fieldset>
-        <div class="booking-summary" aria-live="polite">
-          <span>Booking total</span>
-          <strong id="bookingTotal">Choose a package</strong>
+        <div class="booking-summary booking-breakdown" aria-live="polite">
+          <div><span>Package price</span><strong id="bookingBasePrice">Choose a package</strong></div>
+          <div><span>Your entered distance (one way)</span><strong id="bookingDistance">Choose a visit option</strong></div>
+          <div><span>Travel charge (R5/km)</span><strong id="bookingTravelFee">Choose a visit option</strong></div>
+          <div class="booking-grand-total"><span>Total including travel</span><strong id="bookingTotal">Choose a package</strong></div>
         </div>
         <button class="btn-primary" type="submit" id="bookingSubmit">Request booking</button>
       </form>
@@ -317,7 +332,7 @@
 
 <footer>© 2026 Boka Mobile Detailing. Developed by Ponas.</footer>
 
-<script src="js/script.js"></script>
+<script src="js/script.js?v=20260915-manual-km"></script>
 
 </body>
 </html>
